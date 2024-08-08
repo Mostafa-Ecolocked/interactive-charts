@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-a5b890f7b58072e9ba1539591a78af50"}, "mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "CNTs and Steel Fibers", "title": "CNTs and Steel Fibers", "type": "nominal"}, "tooltip": [{"field": "Strain Rate (s^-1)", "type": "quantitative"}, {"field": "Dynamic Compressive Strength (MPa)", "type": "quantitative"}, {"field": "CNTs and Steel Fibers", "type": "nominal"}], "x": {"field": "Strain Rate (s^-1)", "title": "Strain Rate (s^-1)", "type": "quantitative"}, "y": {"field": "Dynamic Compressive Strength (MPa)", "title": "Dynamic Compressive Strength (MPa)", "type": "quantitative"}}, "height": 400, "title": "Effect of CNTs and Steel Fibers on the Dynamic Compressive Strength of UHPC", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-a5b890f7b58072e9ba1539591a78af50": [{"Strain Rate (s^-1)": 64.2, "Dynamic Compressive Strength (MPa)": 103.8, "CNTs and Steel Fibers": "No Fiber"}, {"Strain Rate (s^-1)": 56.3, "Dynamic Compressive Strength (MPa)": 116.1, "CNTs and Steel Fibers": "CNTs"}, {"Strain Rate (s^-1)": 58.4, "Dynamic Compressive Strength (MPa)": 129.1, "CNTs and Steel Fibers": "CNTs + SF 0.5%"}, {"Strain Rate (s^-1)": 126.3, "Dynamic Compressive Strength (MPa)": 162.7, "CNTs and Steel Fibers": "CNTs + SF 0.5%"}, {"Strain Rate (s^-1)": 53.2, "Dynamic Compressive Strength (MPa)": 150.3, "CNTs and Steel Fibers": "CNTs + SF 1.0%"}, {"Strain Rate (s^-1)": 118.8, "Dynamic Compressive Strength (MPa)": 165.2, "CNTs and Steel Fibers": "CNTs + SF 1.0%"}, {"Strain Rate (s^-1)": 60.2, "Dynamic Compressive Strength (MPa)": 176.0, "CNTs and Steel Fibers": "CNTs + SF 2.0%"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
